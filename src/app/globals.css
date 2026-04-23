@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --seed: #4F46E5;
+
+  --primary: #6366F1;
+  --secondary: #78767a;
+  --tertiary: #6f7691;
+  --neutral: #111827;
+
+  --background: #ffffff;
+  --foreground: #111827;
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    --seed: #4F46E5;
+
+    --primary: #818cf8;
+    --secondary: #a1a1aa;
+    --tertiary: #94a3b8;
+    --neutral: #f9fafb;
+  }
+}
+
+/* APPLY BASE STYLES */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

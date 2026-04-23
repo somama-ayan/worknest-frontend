@@ -1,0 +1,21 @@
+
+/* for button gradient */
+.primaryGradient {
+  background: linear-gradient(90deg, #c0c1ff 0%, #6a6cff 50%, #2f2ebe 100%);
+}
+
+/* button borders */
+.borderGhost{
+    /* border-color: var(--neutral); */
+    /* border-color: rgb(83, 83, 83); */
+    border-width: 1px;
+    border-radius: 5px;
+    border-bottom: #505151;
+    border-right: #505151;
+    font-size: 14px;
+}
+/* primary button text  */
+.textOnPrimary {
+  --tw-text-opacity: 1;
+  color: rgb(39 36 184 / var(--tw-text-opacity, 1));
+}
