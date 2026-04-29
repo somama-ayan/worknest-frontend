@@ -2,7 +2,7 @@
 import styles from "./page.module.css";
 export default function Home() {
   return (
-    <div className='py-6'>
+    <div className='bg-slate-700 py-6'>
       <section className="flex items-center justify-center bg-tertiary h-screen w-full bg-gradient-to-r from-neutral via-neutral to-gray-800">
         <div className="">
           <h1 className="text-center mb-5 text-white font-bold text-6xl">The Kinetic Canva for <br />Engineering Teams.</h1>
