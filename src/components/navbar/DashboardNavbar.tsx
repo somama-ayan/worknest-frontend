@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+// import Link from "next/link";
 import { FiBell, FiSearch, FiLogOut } from "react-icons/fi";
 
 export default function DashboardNavbar() {
@@ -8,7 +8,7 @@ export default function DashboardNavbar() {
     <nav className="w-full h-16 border-b border-slate-200 bg-white flex items-center px-6 justify-between">
 
       {/* Left → Logo + Nav */}
-      <div className="flex items-center gap-8">
+      {/* <div className="flex items-center gap-8">
         <Link href="/" className="text-xl font-bold text-slate-900">
           WorkNest
         </Link>
@@ -24,7 +24,7 @@ export default function DashboardNavbar() {
         <Link href="/team" className="text-sm text-slate-600 hover:text-black">
           Team
         </Link>
-      </div>
+      </div> */}
 
       {/* Center → Search */}
       <div className="hidden md:flex items-center gap-2 bg-slate-100 px-3 py-1 rounded-lg">
