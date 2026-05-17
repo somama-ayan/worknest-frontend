@@ -4,7 +4,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6 p-5">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
         <div>
           <h1 className="text-2xl font-bold">Welcome back, Alex</h1>
           <p className="text-slate-500">
@@ -23,14 +23,14 @@ export default function DashboardPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <StatCard title="Tasks Completed" value="24" extra="+12%" />
         <StatCard title="Active Projects" value="08" extra="Stable" />
         <StatCard title="Time Saved" value="14.5h" extra="+3.2h" />
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="col-span-2 space-y-6">
           {/* Active Projects */}
           <div className="bg-white p-5 rounded-xl border">

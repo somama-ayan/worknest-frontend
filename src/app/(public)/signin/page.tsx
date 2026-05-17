@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import { useRouter } from "next/navigation";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -13,9 +14,14 @@ export default function Signin() {
     password: "",
   });
 
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    setError("");
+
+    try {
     const res = await fetch("http://localhost:5000/api/v1/auth/signin", {
       method: "POST",
       headers: {
@@ -30,9 +36,13 @@ export default function Signin() {
     if (res.ok) {
       router.push("/dashboard");
     } else {
-      console.log(data.message);
+      setError(data.message || "Something went wrong");
     }
-  };
+
+  } catch (err) {
+    setError(`Unable to connect to server: ${err}`);
+  }
+};
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-[#f6f7ff] px-4">
@@ -100,7 +110,11 @@ export default function Signin() {
           <button type="submit" className="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition">
             Sign in to WorkNest
           </button>
-
+              {error && (
+  <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-3">
+    {error}
+  </div>
+)}
         </form>
 
         {/* Divider */}

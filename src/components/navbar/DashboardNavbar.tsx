@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 // import Link from "next/link";
 import { FiBell, FiSearch, FiLogOut } from "react-icons/fi";
 
@@ -44,11 +45,12 @@ export default function DashboardNavbar() {
           <FiLogOut />
           Logout
         </button>
-
+        <Link href="/profile">
         <img
           src="https://i.pravatar.cc/40"
           className="h-8 w-8 rounded-full cursor-pointer"
-        />
+          />
+          </Link>
       </div>
 
     </nav>
