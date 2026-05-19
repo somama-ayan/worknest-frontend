@@ -1,7 +1,7 @@
 // app/projects/page.tsx
 
 "use client";
-
+import { useRouter } from "next/navigation";
 import {
   FiSearch,
   FiBell,
@@ -26,6 +26,12 @@ type TaskCardProps = {
 };
 
 export default function ProjectsPage() {
+  const router = useRouter();
+  const handleClick = () => {
+    
+    router.push("/addNewProject");
+  }
+
   return (
     <main className="min-h-screen bg-[#f5f7fc] text-[#0f172a]">
       {/* Top Navbar */}
@@ -51,7 +57,10 @@ export default function ProjectsPage() {
               <FiSettings className="cursor-pointer" />
             </div>
 
-            <button className="rounded-xl bg-[#4f46e5] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#4338ca]">
+            <button onClick={(e) => {
+    e.preventDefault();
+    handleClick();
+  }} className="rounded-xl bg-[#4f46e5] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#4338ca]">
               New Project
             </button>
 
