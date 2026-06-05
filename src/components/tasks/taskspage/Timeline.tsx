@@ -1,5 +1,5 @@
 /* =========================
-   Projects TIMELINE VIEW
+   Tasks TIMELINE VIEW
 ========================= */
 
 export default function TimelineView() {

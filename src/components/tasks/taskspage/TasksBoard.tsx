@@ -1,8 +1,8 @@
 /* =========================
-   Projects TIMELINE VIEW
+   Tasks Board VIEW
 ========================= */
 
-export default function TimelineView() {
+export default function TaskBoard() {
   return (
     <div className="mt-8 rounded-2xl border border-[#dce3f0] bg-white p-6 shadow-sm">
       <h2 className="text-xl font-semibold">Timeline View</h2>

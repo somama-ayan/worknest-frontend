@@ -1,10 +1,9 @@
-// app/projects/page.tsx
+// app/tasks/page.tsx
 
 "use client";
 
-import BoardView from "@/components/projects/projectsPage/BoardView";
-import ListView from "@/components/projects/projectsPage/ListView";
-import TimelineView from "@/components/projects/projectsPage/TimelineView";
+import TasksBoard from "@/components/tasks/taskspage/TasksBoard";
+import TasksListView from "@/components/tasks/taskspage/TasksListView";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -31,13 +30,13 @@ import {
 //   completed?: boolean;
 // };
 
-export default function ProjectsPage() {
+export default function TasksPage() {
   const router = useRouter();
 
   const [activeTab, setActiveTab] = useState("board");
 
   const handleClick = () => {
-    router.push("/projects/addNewProject");
+    router.push("/tasks/addNewTask");
   };
 
   return (
@@ -73,7 +72,7 @@ export default function ProjectsPage() {
               }}
               className="rounded-xl bg-[#4f46e5] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#4338ca]"
             >
-              New Project
+              New Tasks
             </button>
 
             <img
@@ -93,7 +92,7 @@ export default function ProjectsPage() {
           <span>›</span>
 
           <span className="font-medium text-[#0f172a]">
-            Projects
+            Tasks
           </span>
         </div>
 
@@ -101,7 +100,7 @@ export default function ProjectsPage() {
         <div className="mt-4 flex flex-col gap-6 xl:flex-row xl:items-start xl:justify-between">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">
-              Manage Your Projects
+              Manage Your Tasks
             </h1>
 
             {/* Tabs */}
@@ -181,11 +180,11 @@ export default function ProjectsPage() {
         </div>
 
         {/* Dynamic Tab Content */}
-        {activeTab === "board" && <BoardView />}
+        {activeTab === "board" && <TasksBoard />}
 
-        {activeTab === "list" && <ListView />}
+        {activeTab === "list" && <TasksListView />}
 
-        {activeTab === "timeline" && <TimelineView />}
+        {/* {activeTab === "timeline" && <TimelineView />} */}
 
         {/* {activeTab === "files" && <FilesView />} */}
       </section>
