@@ -67,7 +67,7 @@ export default function AddNewTask() {
         try {
 
             const response = await fetch(
-                "",
+                "http://localhost:5000/api/v1/tasks/addNewTask",
                 {
                     method: "POST",
                     headers: {
@@ -80,6 +80,7 @@ export default function AddNewTask() {
             console.log("Response received");
             console.log(data)
             const result = await response.json();
+            console.log(result)
             if (!response.ok) {
                 throw new Error(result.message || "Failed to create project");
             }
