@@ -42,7 +42,7 @@ export default function CreateProjectPage() {
   const onSubmit = async (data: ProjectFormData) => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/v1/project/addNewProject",
+        "http://localhost:5000/api/v1/projects/addNewProject",
         {
           method: "POST",
           headers: {
