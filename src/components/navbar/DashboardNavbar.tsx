@@ -1,10 +1,40 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 // import Link from "next/link";
 import { FiBell, FiSearch, FiLogOut } from "react-icons/fi";
 
 export default function DashboardNavbar() {
+  const [error , setError] = useState("");
+  const router = useRouter();
+  const handleSignOut = async () => {
+    try {
+      
+      const response = await fetch(
+        "http://localhost:5000/api/v1/auth/signout",
+        {
+          method: "POST",
+          credentials: "include"
+        }
+      )
+      const data = await response.json()
+      
+      alert(data.message)
+      router.push("/")
+    } catch (err) {
+      if(err instanceof Error)
+        setError(err.message || "Error while Logging Out")
+    }
+  }
+
+  if(error)
+  {
+    <p className="text-sm bg-red-600">{error}</p>
+  }
+
+
   return (
     <nav className="w-full h-16 border-b border-slate-200 bg-white flex items-center px-6 justify-between">
 
@@ -41,7 +71,9 @@ export default function DashboardNavbar() {
 
         <FiBell className="text-xl text-slate-700 cursor-pointer" />
 
-        <button className="flex items-center gap-2 text-sm text-slate-700 hover:text-black">
+        <button className="flex items-center gap-2 text-sm text-slate-700 hover:text-black"
+        onClick={handleSignOut}
+        >
           <FiLogOut />
           Logout
         </button>

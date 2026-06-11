@@ -27,7 +27,7 @@ export const projectSchema = z.object({
     description: z
         .string()
         .min(5, "Description must be at least 5 characters")
-        .max(100, "Description cannot exceed 60 characters"),
+        .max(300, "Description cannot exceed 60 characters"),
 
     target_completion_date: z
         .string()

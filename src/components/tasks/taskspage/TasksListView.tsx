@@ -1,6 +1,8 @@
 /* =========================
    Tasks List VIEW
 ========================= */
+
+import { MdEdit, MdDelete } from "react-icons/md";
 type TaskList = {
   _id: string
   title: string,
@@ -62,20 +64,35 @@ export default function TasksListView() {
   }
 
   return (
-    <div>
+    <div className="mt-8 space-y-4">
       {
         tasks.map((task) => {
           return(
-            <div key={task._id}>
+            <div className="" key={task._id}>
              
-            <div className="shadow-sm bg-white border border-teal p-6">
+            <div  onClick={() => router.push(`/tasks/${task._id}`)}
+            className="shadow-sm bg-white border border-teal p-6">
 
               <h2>Title: {task.title}</h2>
-              <h5>Project ID:{task.project}</h5>
-              <h4>Status: {task.status}</h4>
+              <p className="text-sm text-gray-500">Project ID:{task.project}</p>
+              <p className="text-sm text-gray-500">Status: {task.status}</p>
               <p>Description: {task.description}</p>
             </div>
+             <div className="flex gap-2">
+                           <button
+                             onClick={() => router.push(`/tasks/${task._id}`)}
+                             className="rounded-lg p-2 text-blue-600 hover:bg-blue-50"
+                           >
+                             <MdEdit size={18} />
+                           </button>
              
+                           <button
+                            onClick={() => router.push(`/tasks/${task._id}`)}
+                             className="rounded-lg p-2 text-red-600 hover:bg-red-50"
+                           >
+                             <MdDelete size={18} />
+                           </button>
+                         </div>
             </div>
           )
         })

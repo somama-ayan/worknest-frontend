@@ -6,9 +6,13 @@ import { useRouter } from "next/navigation";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { CiGrid41 } from "react-icons/ci";
+import { useAuth } from "@/app/providers/AuthProvider";
+
+
+
 export default function Signin() {
   const router = useRouter();
-
+  const { setUser } = useAuth(); // for centralized state
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -34,6 +38,7 @@ export default function Signin() {
     const data = await res.json();
 
     if (res.ok) {
+      setUser(data.user)
       router.push("/dashboard");
     } else {
       setError(data.message || "Something went wrong");
@@ -151,3 +156,5 @@ export default function Signin() {
     </div>
   );
 }
+
+
